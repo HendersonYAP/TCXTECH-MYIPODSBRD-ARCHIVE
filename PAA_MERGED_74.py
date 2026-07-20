@@ -1690,6 +1690,10 @@ class MYIPOApp(tk.Tk):
         # background during startup, so the US groups are already populated
         # (and fresh) by the time any trading tab is opened.
         self.after(600, self._ensure_us_universe_warm)
+        # SoR (Save for Rewards) — reward saved SCA holdings on entry.
+        # Delayed slightly past the US-universe warm so it doesn't compete
+        # for the very first paint; idempotent per day either way.
+        self.after(900, self._sor_run_and_popup)
 
     def _build_ui(self):
         top = tk.Frame(self, bg='#0d1117', pady=6)
@@ -4502,6 +4506,14 @@ class MYIPOApp(tk.Tk):
             'raffle': 'Monthly RM30 Starbucks Gift Card',
             'badge': '⭐', 'color': '#C77DFF',
         },
+        'Beta Supporter': {
+            # Future Expansion Pack tier — funds HK/SG market development.
+            # No raffle (it's a dev-fund tier, not a gift-card tier); SoR
+            # gives it the biggest position-holding multiplier instead.
+            'price_wk': 2.99, 'daily_drip': 5_000, 'day7_drip': 5_000,
+            'max_stake': 10_000,  'ads_free': True, 'raffle': None,
+            'badge': '🚀', 'color': '#FFD700', 'sor_mult': 2.0,
+        },
     }
     LOGIN_REWARDS  = [100, 200, 300, 400, 500, 600, 700]   # day 1..7 cycle
     STREAK_BONUS   = {2: 100, 4: 150, 7: 200}               # consecutive-day bonus
@@ -4568,6 +4580,85 @@ class MYIPOApp(tk.Tk):
             pts['ads_date'] = today_s
             pts['ads_watched'] = 0
         return msgs
+
+    def _sor_run_and_popup(self):
+        """🎁 Save for Rewards (SoR) — the missing piece that actually
+        turns your saved SCA holdings into credits. Runs once per calendar
+        day (idempotent, mirrors _rewards_daily_engine): sums SaveForRewards
+        credits for every position currently saved in the SCA ledger,
+        applies a supporter-tier multiplier (Beta Supporter/FEP gets the
+        biggest one), pays it straight into the wallet, and pops up a
+        summary — plus a 'Road to Reward' teaser for going further and a
+        nudge toward the FEP tier if the user isn't on it yet."""
+        import datetime as _dt
+        ports = getattr(self, 'newpor_portfolios', None) or {}
+        holdings_all = []
+        for _pname, pdata in ports.items():
+            for sym, h in (pdata.get('holdings') or {}).items():
+                shares = h.get('shares', 0) or 0
+                if shares > 0:
+                    holdings_all.append((sym, h.get('market', 'US'), shares))
+
+        pts = self._pts_load()
+        today_s = _dt.date.today().isoformat()
+        if pts.get('sor_last_date') == today_s:
+            return   # already credited today
+        pts['sor_last_date'] = today_s
+        if not holdings_all:
+            self._pts_save(pts)
+            return   # nothing saved in SCA yet — nothing to reward
+
+        lotto_codes = {c for c, _ in LOTTO_STOCK_LIST}
+        base_cr, lines = 0, []
+        for sym, region, units in holdings_all:
+            is_lotto = region == 'MY' and sym.replace('.KL', '') in lotto_codes
+            cr = SaveForRewards.calculate_position_cr(region, units, is_lotto_33=is_lotto)
+            if cr > 0:
+                base_cr += cr
+                lines.append(f'   •  {sym}: +{cr:,} Cr  ({units:g} units · {region})')
+
+        if base_cr <= 0:
+            self._pts_save(pts)
+            return
+
+        tier_name = pts.get('tier', 'Free')
+        tier      = self._pts_tier(pts)
+        mult = tier.get('sor_mult', 1.25 if tier_name != 'Free' else 1.0)
+        total_cr = int(base_cr * mult)
+        pts['credits'] = pts.get('credits', 0) + total_cr
+
+        # ── Road to Reward — progress proxy: diversification across saved
+        #    SCA positions (10+ distinct holdings = fully "on the road").
+        #    Awarded once, the day the target is actually reached.
+        target_pct = min(100, len(holdings_all) * 10)
+        road_cr = SaveForRewards.calculate_road_to_cr(target_pct)
+        road_msg = (f'📈 Road to Reward: your saved SCA portfolio is at '
+                    f'{target_pct}% (diversify across 10+ positions for 100%).')
+        if target_pct >= 100 and pts.get('sor_road_claimed') != True:
+            pts['credits'] += road_cr
+            pts['sor_road_claimed'] = True
+            road_msg += f'\n   🏁 100% reached — bonus +{road_cr:,} Cr claimed!'
+        else:
+            road_msg += (f'\n   Reach 100% to claim a one-time bonus '
+                         f'(currently worth {road_cr:,} Cr at this stage).')
+
+        self._pts_save(pts)
+
+        if tier_name == 'Beta Supporter':
+            fep_msg = '🚀 Beta Supporter (FEP) active — your SoR credits are already doubled!'
+        else:
+            fep_msg = ('🚀 Want bigger SoR rewards? The Beta Supporter (Future '
+                       'Expansion Pack) tier — RM2.99/week — doubles every SoR '
+                       'credit you earn. See 💳 Get Credits.')
+
+        msg = (
+            f'Your SCA holdings just earned +{total_cr:,} Cr as a default '
+            f'preset reward for saving them'
+            + (f' — {mult:g}x {tier_name} bonus applied' if mult > 1 else '') + '.\n\n'
+            + '\n'.join(lines[:8]) + ('\n   …' if len(lines) > 8 else '') + '\n\n'
+            + road_msg + '\n\n' + fep_msg
+        )
+        messagebox.showinfo('🎁 Save for Rewards (SoR)', msg, parent=self)
 
     def _rewards_watch_ad(self, pts: dict):
         """Claim one ad reward (random 100–999 Cr, max 3/day, free tier only).
@@ -4921,6 +5012,7 @@ to earn — incentivised clicking violates ad-network policy.</div>
         'Kopitiam Kopi': 'https://buy.stripe.com/4gM00j80Ea7v0Aa0ps1B601',
         'ZusCoffer':     'https://buy.stripe.com/9B66oHbcQbbzfv4b461B602',
         'StarBockers':   'https://buy.stripe.com/00wbJ15Swbbz5Uufkm1B603',
+        'Beta Supporter': 'https://buy.stripe.com/aFa9ATcgU5Rf96G7RU1B604',
     }
 
     # Benefit copy per tier, mirroring the Stripe product descriptions.
@@ -4967,7 +5059,7 @@ to earn — incentivised clicking violates ad-network policy.</div>
 
         cur_tier = self._pts_load().get('tier', 'Free')
         for name, t in self.PAA_TIERS.items():
-            if name == 'Free':
+            if name in ('Free', 'Beta Supporter'):
                 continue
             title, bullets = self.TIER_BENEFITS.get(name, (name, []))
             card = tk.Frame(dlg, bg='#161b22', highlightbackground=t['color'],
@@ -5045,22 +5137,25 @@ to earn — incentivised clicking violates ad-network policy.</div>
             wraplength=380,
         ).pack(anchor="w")
 
-        def open_fep_beta():
-            import webbrowser
-            webbrowser.open(
-                "https://buy.stripe.com/aFa9ATcgU5Rf96G7RU1B604"
-            )
-        tk.Button(
-            support_frame,
-            text="Become a Beta Supporter (RM2.99/week)",
-            command=open_fep_beta,
-            bg="#238636",
-            fg="white",
-            activebackground="#2ea043",
-            activeforeground="white",
-            cursor="hand2",
-            font=("Segoe UI", 9, "bold")
-        ).pack(anchor="w", pady=(10, 0))
+        if cur_tier == 'Beta Supporter':
+            tk.Label(support_frame, text='✓ Your current tier',
+                     font=('Segoe UI', 8, 'bold'), fg='#3FB950',
+                     bg='#161b22').pack(anchor='w', pady=(6, 0))
+        else:
+            def open_fep_beta():
+                dlg.destroy()
+                self._rewards_open_subscribe('Beta Supporter')
+            tk.Button(
+                support_frame,
+                text="Become a Beta Supporter (RM2.99/week)",
+                command=open_fep_beta,
+                bg="#238636",
+                fg="white",
+                activebackground="#2ea043",
+                activeforeground="white",
+                cursor="hand2",
+                font=("Segoe UI", 9, "bold")
+            ).pack(anchor="w", pady=(10, 0))
 
         # ==========================================================
         # 💬 Chat / Suggestions — open to every tier (Free through
@@ -14780,6 +14875,135 @@ class SCAWindow(tk.Toplevel):
 
 
 # =============================================================================
+def _sp500_universe_list() -> list:
+    """S&P 500 (ticker, name) universe for splash-time prefetch — mirrors
+    MYIPOApp._sp500_config()'s sp500.csv pattern but is callable before any
+    MYIPOApp instance exists (splash runs first)."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sp500.csv')
+    try:
+        if not os.path.exists(path):
+            with open(path, 'w', encoding='utf-8', newline='') as f:
+                f.write('ticker,name\n')
+                for t, n in MYIPOApp.SP500_CONFIG:
+                    n_esc = f'"{n}"' if ',' in n else n
+                    f.write(f'{t},{n_esc}\n')
+            log(f"   sp500.csv seeded with {len(MYIPOApp.SP500_CONFIG)} tickers")
+        import csv as _csv
+        out = []
+        with open(path, encoding='utf-8') as f:
+            for row in _csv.DictReader(f):
+                t = (row.get('ticker') or '').strip()
+                if t:
+                    out.append((t, (row.get('name') or t).strip()))
+        if out:
+            return out
+    except Exception as e:
+        log(f"   ⚠️  sp500.csv load failed ({e}) — using baked-in list")
+    return list(MYIPOApp.SP500_CONFIG)
+
+
+def sp500_prefetch_price_and_dividends(log_cb=None):
+    """⬇  Splash-time price + dividend prefetch for the full S&P 500
+    universe (503 tickers), chunked 100-at-a-time — same chunk size and
+    rate-limit pattern as MYIPOApp._zdws_warm_batch_cache (a single
+    monolithic call risks one Yahoo hiccup zeroing out all 503). Doing
+    this at splash — instead of the old silent background warm after the
+    dashboard opened — means the US-Stock ZDWS/ZDOS group and dividend
+    estimator are both ready the moment the dashboard appears.
+    Returns (n_prices_cached, n_dividend_series_cached)."""
+    def _log(m):
+        if log_cb:
+            try:
+                log_cb(m)
+            except Exception:
+                pass
+
+    tickers_full = _sp500_universe_list()
+    tickers = [t for t, _ in tickers_full]
+    if not tickers:
+        return 0, 0
+    try:
+        import yfinance as _yf
+    except Exception as e:
+        _log(f"   ⚠️  yfinance unavailable — SP500 prefetch skipped ({e})")
+        return 0, 0
+
+    CHUNK = 100     # 503 tickers -> 6 chunks; keeps any single failed/
+                    # throttled call from wiping out the whole universe
+    PAUSE = 2.0     # seconds between chunks — avoids Yahoo's rate limiter
+    import time as _time
+    n_price, n_divs = 0, 0
+    chunks = [tickers[i:i + CHUNK] for i in range(0, len(tickers), CHUNK)]
+    total_chunks = len(chunks)
+
+    for idx, chunk in enumerate(chunks):
+        if idx > 0:
+            _time.sleep(PAUSE)
+
+        # ── Price (batch download, one call per chunk) ──────────────────
+        n_chunk_price = 0
+        for attempt in (1, 2):
+            try:
+                data = _yf.download(chunk, period='5d', group_by='ticker',
+                                    auto_adjust=True, progress=False, threads=True)
+            except Exception as e:
+                _log(f"   ⚠️  SP500 price chunk {idx + 1} attempt {attempt} failed: {e}")
+                data = None
+            if data is None or len(data) == 0:
+                if attempt == 1:
+                    _time.sleep(PAUSE * 3)
+                    continue
+                break
+            for sym in chunk:
+                try:
+                    closes = MYIPOApp._extract_batch_closes(data, sym, len(chunk))
+                    if closes.empty:
+                        continue
+                    last = float(closes.iloc[-1])
+                    prev = float(closes.iloc[-2]) if len(closes) > 1 else last
+                    cache_set_live_dict(f'tick_{sym.replace("^", "")}',
+                                        {'last': last, 'prev': prev})
+                    n_chunk_price += 1
+                except Exception:
+                    continue
+            break
+        n_price += n_chunk_price
+        _log(f"   SP500 price chunk {idx + 1}/{total_chunks}: "
+             f"{n_chunk_price}/{len(chunk)} cached…")
+
+        # ── Dividends (only symbols not already cached) ─────────────────
+        stale = [s for s in chunk if cache_get_divs(s) is None]
+        n_chunk_div = 0
+        if stale:
+            from concurrent.futures import ThreadPoolExecutor as _TPE, as_completed as _acd
+
+            def _fetch_div(sym):
+                try:
+                    divs = _yf.Ticker(sym).dividends
+                    if divs is None or divs.empty:
+                        return sym, None
+                    if divs.index.tz is not None:
+                        divs.index = divs.index.tz_localize(None)
+                    cache_set_divs(sym, divs)
+                    return sym, divs
+                except Exception:
+                    return sym, None
+
+            with _TPE(max_workers=min(20, len(stale))) as ex:
+                futs = {ex.submit(_fetch_div, s): s for s in stale}
+                for fut in _acd(futs):
+                    _sym, divs = fut.result()
+                    if divs is not None:
+                        n_chunk_div += 1
+        n_divs += n_chunk_div
+        _log(f"   SP500 dividends chunk {idx + 1}/{total_chunks}: "
+             f"{n_chunk_div}/{len(chunk)} fetched…")
+
+    _log(f"✅  SP500 universe ready: {n_price}/{len(tickers)} prices, "
+         f"{n_divs} dividend series cached.")
+    return n_price, n_divs
+
+
 class SplashScreen(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -14915,6 +15139,7 @@ class SplashScreen(tk.Tk):
             or 'TR dividends' in msg_l or 'TR price matrix' in msg_l
             or 'TR-Series' in msg_l or 'Top 10' in msg_l or 'Top10' in msg_l
             or 'Building' in msg_l or msg_l.startswith('✅')
+            or 'SP500 price chunk' in msg_l or 'SP500 dividends chunk' in msg_l
         )
         if is_progress_event:
             self._progress_steps = getattr(self, '_progress_steps', 0) + 1
@@ -14922,7 +15147,13 @@ class SplashScreen(tk.Tk):
             self._pbar['value'] = pct
             self._pct_var.set(f'{pct}%')
 
-        if 'chunk' in msg_l.lower() or 'Downloading chunk' in msg_l:
+        if 'SP500 price chunk' in msg_l:
+            self._stage_var.set('⬇  Downloading price data (S&P 500)…')
+            self._detail_var.set(msg_l)
+        elif 'SP500 dividends chunk' in msg_l:
+            self._stage_var.set('⬇  Downloading dividend data (S&P 500)…')
+            self._detail_var.set(msg_l)
+        elif 'chunk' in msg_l.lower() or 'Downloading chunk' in msg_l:
             self._stage_var.set('⬇  Downloading price data…')
             self._detail_var.set(msg_l)
         elif 'TR dividends' in msg_l:
@@ -14965,7 +15196,7 @@ class SplashScreen(tk.Tk):
         self._refresh_file_sizes()
         self._load_btn.config(state='disabled', text='Loading…', bg='#333')
         self._progress_steps    = 0
-        self._progress_estimate = 55
+        self._progress_estimate = 70
         self._pbar['value'] = 0
         self._pct_var.set('0%')
         self._animate_spinner()
@@ -14976,8 +15207,9 @@ class SplashScreen(tk.Tk):
 
     def _load_thread(self, path, prefer_online=True, apply_sell_fee=True):
         """
-        Download teet.csv, this K-ID's ledger AND dividend/EPS data IN PARALLEL.
-        Three tasks fire simultaneously — dashboard opens only when all three done.
+        Download teet.csv (+ S&P 500 price/dividend data, same step) AND
+        this K-ID's ledger + dividend/EPS data IN PARALLEL. Two tasks fire
+        simultaneously — dashboard opens only when both are done.
         """
         from concurrent.futures import ThreadPoolExecutor, as_completed as _ac
 
@@ -14995,6 +15227,18 @@ class SplashScreen(tk.Tk):
                     apply_sell_fee=apply_sell_fee,
                 )
                 teet_result[0] = result
+                # ── S&P 500 universe — price + dividend data, chunked
+                #    100-at-a-time. Treated as the same download step as
+                #    teet.csv (same [teet] log prefix, runs right after it
+                #    on this same thread) so the US-Stock ZDWS/ZDOS group
+                #    and dividend estimator are warm the instant the
+                #    dashboard opens, instead of a silent post-open fetch.
+                if prefer_online:
+                    sp500_prefetch_price_and_dividends(
+                        log_cb=lambda m: self.after(0, lambda msg=m: self._log(f'[teet]  {msg}')))
+                else:
+                    self.after(0, lambda: self._log(
+                        '[teet]  ⏭  Offline mode — skipping S&P 500 price/dividend prefetch.'))
             except Exception as e:
                 teet_error[0] = str(e)
 
@@ -15031,7 +15275,7 @@ class SplashScreen(tk.Tk):
                 self.after(0, lambda msg=str(e):
                     self._log(f'[Ledger] ⚠️  {msg}'))
 
-        # ── Fire both downloads simultaneously ────────────────────────────────
+        # ── Fire both downloads simultaneously ──────────────────────────────
         self.after(0, lambda: self._stage_var.set(
             '⬇  Downloading teet.csv + your ledger in parallel…'))
 
