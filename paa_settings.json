@@ -12,7 +12,7 @@
       "created": "2026-07-17"
     }
   ],
-  "kid_last_user": "TEST1",
+  "kid_last_user": "ADMIN1",
   "pts_by_user": {
     "hsd": {
       "credits": 9103.02,
@@ -211,7 +211,7 @@
           "balance": 2982.0
         }
       ],
-      "sor_custom_enabled": false
+      "sor_custom_enabled": true
     },
     "admin1": {
       "credits": 25782.0,
@@ -438,12 +438,12 @@
   },
   "presence": {
     "test1": {
-      "last_seen": "2026-07-20 15:08:20",
-      "last_login": "2026-07-20 15:08:20"
+      "last_seen": "2026-07-20 15:19:15",
+      "last_login": "2026-07-20 15:16:26"
     },
     "admin1": {
-      "last_seen": "2026-07-20 15:07:46",
-      "last_login": "2026-07-20 15:03:14"
+      "last_seen": "2026-07-20 15:21:05",
+      "last_login": "2026-07-20 15:21:05"
     }
   },
   "stripe_api_key": "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",
