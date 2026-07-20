@@ -12,7 +12,7 @@
       "created": "2026-07-17"
     }
   ],
-  "kid_last_user": "ADMIN1",
+  "kid_last_user": "TEST1",
   "pts_by_user": {
     "hsd": {
       "credits": 9103.02,
@@ -214,7 +214,7 @@
       "sor_custom_enabled": false
     },
     "admin1": {
-      "credits": 23960.0,
+      "credits": 25782.0,
       "predictions": [],
       "history": [],
       "total_made": 0,
@@ -256,6 +256,24 @@
           "delta": 680.0,
           "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
           "balance": 23960.0
+        },
+        {
+          "ts": "2026-07-20 15:05:49",
+          "delta": 680.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 24640.0
+        },
+        {
+          "ts": "2026-07-20 15:05:57",
+          "delta": 680.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 25320.0
+        },
+        {
+          "ts": "2026-07-20 15:07:46",
+          "delta": 462.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 25782.0
         }
       ],
       "sor_custom_enabled": false,
@@ -285,6 +303,13 @@
       "csv_path": "",
       "label": "My Sheet (283 txns)",
       "saved": "2026-07-20 14:37"
+    },
+    "admin1": {
+      "mode": "sheet",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaZ4yBz0KhsA5Aj2sAehPd3nnMZjLF7RBs4bQHsxYdhrJW2NQ0u_kQc8_cXiDWxQMsRc2o-dvaSGlF/pub?output=csv",
+      "csv_path": "",
+      "label": "My Sheet (283 txns)",
+      "saved": "2026-07-20 15:07"
     }
   },
   "pts": {
@@ -413,12 +438,12 @@
   },
   "presence": {
     "test1": {
-      "last_seen": "2026-07-20 13:45:29",
-      "last_login": "2026-07-20 13:38:11"
+      "last_seen": "2026-07-20 15:08:20",
+      "last_login": "2026-07-20 15:08:20"
     },
     "admin1": {
-      "last_seen": "2026-07-20 14:59:00",
-      "last_login": "2026-07-20 14:56:03"
+      "last_seen": "2026-07-20 15:07:46",
+      "last_login": "2026-07-20 15:03:14"
     }
   },
   "stripe_api_key": "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",
