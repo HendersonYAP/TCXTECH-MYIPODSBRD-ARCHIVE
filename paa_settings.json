@@ -1,0 +1,425 @@
+{
+  "applock_enabled": false,
+  "kid_accounts": [
+    {
+      "username": "HSD",
+      "pin_hash": "130e3a0a448d3ed90aac47bb4ae2395ef3f3742885f4f04e926f7217274d874a",
+      "created": "2026-07-17"
+    },
+    {
+      "username": "TEST1",
+      "pin_hash": "c42da366e7637f023a91a1c48f9b7b8027366600be3cb7068e74feab677fa376",
+      "created": "2026-07-17"
+    }
+  ],
+  "kid_last_user": "ADMIN1",
+  "pts_by_user": {
+    "hsd": {
+      "credits": 9103.02,
+      "predictions": [
+        {
+          "id": 1,
+          "category": "Stock Price Target",
+          "question": "Will 5326.KL (99SMART) close HIGHER by 24/07/2026?",
+          "type": "YES/NO",
+          "position": "NO",
+          "stake": 1000.0,
+          "deadline": "24/07/2026",
+          "period_lbl": "Weekly  \u2014 Fri 24 Jul 2026",
+          "created": "17/07/2026",
+          "status": "open",
+          "payout": 0.0,
+          "correct": null,
+          "source": "LottoStock (Bursa blue-chip)"
+        }
+      ],
+      "history": [],
+      "total_made": 1,
+      "total_correct": 0,
+      "daily_topup_date": "",
+      "zdws_active": [],
+      "zdws_history": [
+        {
+          "id": 1,
+          "underlying": "MYIPO+ Ace",
+          "side": "BULL",
+          "stake": 100.0,
+          "entry": 357.01,
+          "opened": "16/07/2026",
+          "settle_date": "24/07/2026",
+          "result": "WIN (early close)",
+          "payout": 100.0,
+          "settled_level": 357.01,
+          "move_pct": 0.0
+        },
+        {
+          "id": 2,
+          "underlying": "MYIPO+ Main",
+          "side": "BEAR",
+          "stake": 100.0,
+          "entry": 57.3,
+          "opened": "16/07/2026",
+          "settle_date": "24/07/2026",
+          "result": "WIN (early close)",
+          "payout": 100.0,
+          "settled_level": 57.3,
+          "move_pct": 0.0
+        },
+        {
+          "id": 3,
+          "underlying": "5326.KL",
+          "side": "BULL",
+          "stake": 100.0,
+          "entry": 3.7200000286102295,
+          "opened": "17/07/2026",
+          "settle_date": "24/07/2026",
+          "result": "WIN (early close)",
+          "payout": 100.0,
+          "settled_level": 3.7200000286102295,
+          "move_pct": 0.0
+        },
+        {
+          "id": 4,
+          "underlying": "0338.KL",
+          "side": "BEAR",
+          "stake": 100.0,
+          "entry": 0.9300000071525574,
+          "opened": "17/07/2026",
+          "settle_date": "24/07/2026",
+          "result": "WIN (early close)",
+          "payout": 100.0,
+          "settled_level": 0.9300000071525574,
+          "move_pct": 0.0
+        },
+        {
+          "id": 5,
+          "underlying": "^KLSE",
+          "side": "BEAR",
+          "stake": 1000.0,
+          "entry": 1722.19,
+          "opened": "17/07/2026",
+          "settle_date": "24/07/2026",
+          "result": "WIN (early close)",
+          "payout": 1000.0,
+          "settled_level": 1722.19,
+          "move_pct": 0.0
+        },
+        {
+          "id": 6,
+          "underlying": "^KLSE",
+          "side": "BULL",
+          "stake": 1000.0,
+          "entry": 1720.72,
+          "opened": "17/07/2026",
+          "settle_date": "20/07/2026",
+          "result": "WIN (early close)",
+          "payout": 1076.07,
+          "settled_level": 1733.81,
+          "move_pct": 0.7607
+        },
+        {
+          "id": 7,
+          "underlying": "5326.KL",
+          "side": "BEAR",
+          "stake": 1000.0,
+          "entry": 3.7100000381469727,
+          "opened": "17/07/2026",
+          "settle_date": "20/07/2026",
+          "result": "WIN (early close)",
+          "payout": 1026.95,
+          "settled_level": 3.700000047683716,
+          "move_pct": -0.2695
+        }
+      ]
+    },
+    "test1": {
+      "credits": 2982.0,
+      "predictions": [],
+      "history": [],
+      "total_made": 0,
+      "total_correct": 0,
+      "daily_topup_date": "",
+      "zdws_active": [],
+      "zdws_history": [
+        {
+          "id": 1,
+          "underlying": "^KS11",
+          "side": "BEAR",
+          "stake": 5000.0,
+          "entry": 6820.60009765625,
+          "ccy": "KRW",
+          "entry_fx": 0.0027439999394118786,
+          "opened": "17/07/2026",
+          "settle_date": "20/07/2026",
+          "result": "WIN (early close)",
+          "payout": 5000.0,
+          "settled_level": 6820.60009765625,
+          "move_pct": 0.0
+        },
+        {
+          "id": 2,
+          "underlying": "^HSI",
+          "side": "BEAR",
+          "stake": 1000.0,
+          "entry": 24562.240234375,
+          "ccy": "HKD",
+          "entry_fx": 0.5210000276565552,
+          "opened": "17/07/2026",
+          "settle_date": "20/07/2026",
+          "result": "WIN (early close)",
+          "payout": 1000.0,
+          "settled_level": 24562.240234375,
+          "move_pct": 0.0
+        }
+      ],
+      "login_last_date": "2026-07-20",
+      "login_streak_day": 2,
+      "login_streak_len": 2,
+      "tier": "Free",
+      "tier_started": "",
+      "ads_date": "2026-07-20",
+      "ads_watched": 2,
+      "zdos_active": [],
+      "zdos_history": [
+        {
+          "id": 1,
+          "underlying": "IDR",
+          "postype": "LONG_PUT",
+          "tier": 6,
+          "strike": 2.1514718857361004,
+          "stake": 10000.0,
+          "entry": 2.28879987844266,
+          "ccy": "MYR",
+          "entry_fx": 1.0,
+          "opened": "19/07/2026",
+          "settle_date": "20/07/2026",
+          "result": "LOSS",
+          "payout": 0.0,
+          "strategy": null,
+          "strategy_id": null,
+          "settled_level": 2.2755999816581607,
+          "move_pct": -0.5767
+        }
+      ],
+      "sor_last_date": "2026-07-20",
+      "sor_road_claimed": true,
+      "credit_log": [
+        {
+          "ts": "2026-07-20 13:43:13",
+          "delta": 980.0,
+          "reason": "Watched ad reward",
+          "balance": 2982.0
+        }
+      ],
+      "sor_custom_enabled": false
+    },
+    "admin1": {
+      "credits": 23280.0,
+      "predictions": [],
+      "history": [],
+      "total_made": 0,
+      "total_correct": 0,
+      "daily_topup_date": "",
+      "login_last_date": "2026-07-20",
+      "login_streak_day": 2,
+      "login_streak_len": 2,
+      "tier": "StarBockers",
+      "tier_started": "2026-07-20",
+      "ads_date": "2026-07-20",
+      "ads_watched": 0,
+      "zdws_active": [],
+      "zdws_history": [],
+      "zdos_active": [],
+      "zdos_history": [],
+      "sor_last_date": "2026-07-20",
+      "credit_log": [
+        {
+          "ts": "2026-07-20 14:35:03",
+          "delta": 12000.0,
+          "reason": "ZusCoffer tier drip (activated mid-day, catch-up)",
+          "balance": 22400.0
+        },
+        {
+          "ts": "2026-07-20 14:51:56",
+          "delta": 680.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 23080.0
+        },
+        {
+          "ts": "2026-07-20 14:51:56",
+          "delta": 200.0,
+          "reason": "SoR \u2014 Road to Reward 100% bonus",
+          "balance": 23280.0
+        }
+      ],
+      "sor_custom_enabled": false,
+      "tier_drip_date": "2026-07-20",
+      "sor_road_claimed": true
+    }
+  },
+  "pts_migrated": true,
+  "sca_sources": {
+    "HSD": {
+      "mode": "sheet",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaZ4yBz0KhsA5Aj2sAehPd3nnMZjLF7RBs4bQHsxYdhrJW2NQ0u_kQc8_cXiDWxQMsRc2o-dvaSGlF/pub?gid=0&single=true&output=csv",
+      "csv_path": "",
+      "label": "My Sheet (274 txns)",
+      "saved": "2026-07-17 15:26"
+    },
+    "TEST1": {
+      "mode": "sheet",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaZ4yBz0KhsA5Aj2sAehPd3nnMZjLF7RBs4bQHsxYdhrJW2NQ0u_kQc8_cXiDWxQMsRc2o-dvaSGlF/pub?gid=0&single=true&output=csv",
+      "csv_path": "",
+      "label": "My Sheet (277 txns)",
+      "saved": "2026-07-17 16:24"
+    },
+    "ADMIN1": {
+      "mode": "sheet",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaZ4yBz0KhsA5Aj2sAehPd3nnMZjLF7RBs4bQHsxYdhrJW2NQ0u_kQc8_cXiDWxQMsRc2o-dvaSGlF/pub?output=csv",
+      "csv_path": "",
+      "label": "My Sheet (283 txns)",
+      "saved": "2026-07-20 14:37"
+    }
+  },
+  "pts": {
+    "credits": 10000.0,
+    "predictions": [],
+    "history": [],
+    "total_made": 0,
+    "total_correct": 0,
+    "daily_topup_date": "",
+    "zdws_active": [],
+    "zdws_history": [
+      {
+        "id": 1,
+        "underlying": "MYIPO+ Ace",
+        "side": "BULL",
+        "stake": 100.0,
+        "entry": 357.01,
+        "opened": "16/07/2026",
+        "settle_date": "24/07/2026",
+        "result": "WIN (early close)",
+        "payout": 100.0,
+        "settled_level": 357.01,
+        "move_pct": 0.0
+      },
+      {
+        "id": 2,
+        "underlying": "MYIPO+ Main",
+        "side": "BEAR",
+        "stake": 100.0,
+        "entry": 57.3,
+        "opened": "16/07/2026",
+        "settle_date": "24/07/2026",
+        "result": "WIN (early close)",
+        "payout": 100.0,
+        "settled_level": 57.3,
+        "move_pct": 0.0
+      },
+      {
+        "id": 3,
+        "underlying": "5326.KL",
+        "side": "BULL",
+        "stake": 100.0,
+        "entry": 3.7200000286102295,
+        "opened": "17/07/2026",
+        "settle_date": "24/07/2026",
+        "result": "WIN (early close)",
+        "payout": 100.0,
+        "settled_level": 3.7200000286102295,
+        "move_pct": 0.0
+      },
+      {
+        "id": 4,
+        "underlying": "0338.KL",
+        "side": "BEAR",
+        "stake": 100.0,
+        "entry": 0.9300000071525574,
+        "opened": "17/07/2026",
+        "settle_date": "24/07/2026",
+        "result": "WIN (early close)",
+        "payout": 100.0,
+        "settled_level": 0.9300000071525574,
+        "move_pct": 0.0
+      },
+      {
+        "id": 5,
+        "underlying": "^KLSE",
+        "side": "BEAR",
+        "stake": 1000.0,
+        "entry": 1722.19,
+        "opened": "17/07/2026",
+        "settle_date": "24/07/2026",
+        "result": "WIN (early close)",
+        "payout": 1000.0,
+        "settled_level": 1722.19,
+        "move_pct": 0.0
+      }
+    ]
+  },
+  "sor_config": {
+    "mode": "default",
+    "default_min_units": 1.0,
+    "us_share_per_cr": 0.01,
+    "my_lotto_cr_per_unit": 1.0,
+    "my_stock_per_cr": 1.0,
+    "custom_threshold": 0.01,
+    "fep_multiplier": 2.0,
+    "supporter_multiplier": 1.25,
+    "road_thresholds": [
+      [
+        100,
+        200
+      ],
+      [
+        90,
+        140
+      ],
+      [
+        75,
+        120
+      ],
+      [
+        67,
+        100
+      ],
+      [
+        50,
+        75
+      ],
+      [
+        34,
+        50
+      ],
+      [
+        25,
+        35
+      ],
+      [
+        20,
+        20
+      ],
+      [
+        10,
+        10
+      ]
+    ]
+  },
+  "presence": {
+    "test1": {
+      "last_seen": "2026-07-20 13:45:29",
+      "last_login": "2026-07-20 13:38:11"
+    },
+    "admin1": {
+      "last_seen": "2026-07-20 14:56:03",
+      "last_login": "2026-07-20 14:56:03"
+    }
+  },
+  "stripe_api_key": "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",
+  "stripe_subs": {},
+  "stripe_last_sync": "2026-07-19 23:23:10",
+  "stripe_restricted_key": "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",
+  "stripe_mode": "live",
+  "stripe_restricted_key_test": "",
+  "stripe_restricted_key_live": "mk_1TvAQFFTjQ5CGpfy7xKNPVdx"
+}
