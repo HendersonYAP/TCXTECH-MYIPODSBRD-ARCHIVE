@@ -133,7 +133,7 @@
       ]
     },
     "test1": {
-      "credits": 2982.0,
+      "credits": 3282.0,
       "predictions": [],
       "history": [],
       "total_made": 0,
@@ -172,13 +172,13 @@
           "move_pct": 0.0
         }
       ],
-      "login_last_date": "2026-07-20",
-      "login_streak_day": 2,
-      "login_streak_len": 2,
+      "login_last_date": "2026-07-21",
+      "login_streak_day": 3,
+      "login_streak_len": 3,
       "tier": "Free",
       "tier_started": "",
-      "ads_date": "2026-07-20",
-      "ads_watched": 2,
+      "ads_date": "2026-07-21",
+      "ads_watched": 0,
       "zdos_active": [],
       "zdos_history": [
         {
@@ -201,7 +201,7 @@
           "move_pct": -0.5767
         }
       ],
-      "sor_last_date": "2026-07-20",
+      "sor_last_date": "2026-07-21",
       "sor_road_claimed": true,
       "credit_log": [
         {
@@ -209,29 +209,144 @@
           "delta": 980.0,
           "reason": "Watched ad reward",
           "balance": 2982.0
+        },
+        {
+          "ts": "2026-07-21 10:14:27",
+          "delta": 300.0,
+          "reason": "Daily login reward (day 3/7)",
+          "balance": 3282.0
         }
       ],
-      "sor_custom_enabled": true
+      "sor_custom_enabled": false
     },
     "admin1": {
-      "credits": 25782.0,
-      "predictions": [],
+      "credits": 70554.0,
+      "predictions": [
+        {
+          "id": 1,
+          "category": "Index Target",
+          "question": "Will KLCI close ABOVE Above 1,650 points by 31/07/2026?",
+          "type": "Multi-Level",
+          "position": "Above 1,650",
+          "stake": 700.0,
+          "deadline": "31/07/2026",
+          "period_lbl": "Weekly  \u2014 Fri 31 Jul 2026",
+          "created": "21/07/2026",
+          "status": "open",
+          "payout": 0.0,
+          "correct": null,
+          "source": "KLCI live"
+        }
+      ],
       "history": [],
-      "total_made": 0,
+      "total_made": 1,
       "total_correct": 0,
       "daily_topup_date": "",
-      "login_last_date": "2026-07-20",
-      "login_streak_day": 2,
-      "login_streak_len": 2,
+      "login_last_date": "2026-07-21",
+      "login_streak_day": 3,
+      "login_streak_len": 3,
       "tier": "StarBockers",
-      "tier_started": "2026-07-20",
-      "ads_date": "2026-07-20",
-      "ads_watched": 0,
+      "tier_started": "2026-07-21",
+      "ads_date": "2026-07-21",
+      "ads_watched": 3,
       "zdws_active": [],
-      "zdws_history": [],
+      "zdws_history": [
+        {
+          "id": 1,
+          "underlying": "USD",
+          "side": "BULL",
+          "stake": 8000.0,
+          "entry": 4.090000152587891,
+          "ccy": "MYR",
+          "entry_fx": 1.0,
+          "opened": "21/07/2026",
+          "settle_date": "22/07/2026",
+          "result": "LOSS (early close, 50% refund)",
+          "payout": 4000.0,
+          "settled_level": 4.086999893188477,
+          "move_pct": -0.0734
+        }
+      ],
       "zdos_active": [],
-      "zdos_history": [],
-      "sor_last_date": "2026-07-20",
+      "zdos_history": [
+        {
+          "id": 4,
+          "underlying": "MYIPO+ Top 50",
+          "postype": "LONG_CALL",
+          "tier": 1,
+          "strike": 132.6534,
+          "stake": 10000.0,
+          "entry": 131.34,
+          "ccy": "MYR",
+          "entry_fx": 1.0,
+          "opened": "21/07/2026",
+          "settle_date": "22/07/2026",
+          "result": "WIN (early close)",
+          "payout": 30000.0,
+          "strategy": null,
+          "strategy_id": null,
+          "settled_level": 132.68,
+          "move_pct": 1.0203
+        },
+        {
+          "id": 3,
+          "underlying": "BTC-USD",
+          "postype": "LONG_CALL",
+          "tier": 1,
+          "strike": 66274.156328125,
+          "stake": 10000.0,
+          "entry": 65617.9765625,
+          "ccy": "USD",
+          "entry_fx": 4.090000152587891,
+          "opened": "21/07/2026",
+          "settle_date": "22/07/2026",
+          "result": "LOSS (early close, 50% refund)",
+          "payout": 5000.0,
+          "strategy": null,
+          "strategy_id": null,
+          "settled_level": 65232.94140625,
+          "move_pct": -0.6597
+        },
+        {
+          "id": 2,
+          "underlying": "MYIPO+ Ace",
+          "postype": "LONG_CALL",
+          "tier": 1,
+          "strike": 352.6213,
+          "stake": 10000.0,
+          "entry": 349.13,
+          "ccy": "MYR",
+          "entry_fx": 1.0,
+          "opened": "21/07/2026",
+          "settle_date": "24/07/2026",
+          "result": "LOSS (early close, 50% refund)",
+          "payout": 5000.0,
+          "strategy": null,
+          "strategy_id": null,
+          "settled_level": 351.38,
+          "move_pct": 0.6445
+        },
+        {
+          "id": 1,
+          "underlying": "CSCO",
+          "postype": "LONG_CALL",
+          "tier": 1,
+          "strike": 112.97860061645508,
+          "stake": 10000.0,
+          "entry": 111.86000061035156,
+          "ccy": "USD",
+          "entry_fx": 4.090000152587891,
+          "opened": "21/07/2026",
+          "settle_date": "22/07/2026",
+          "result": "LOSS (early close, 50% refund)",
+          "payout": 5000.0,
+          "strategy": null,
+          "strategy_id": null,
+          "settled_level": 110.69999694824219,
+          "move_pct": -1.1096
+        }
+      ],
+      "sor_last_date": "2026-07-22",
       "credit_log": [
         {
           "ts": "2026-07-20 14:35:03",
@@ -274,11 +389,148 @@
           "delta": 462.0,
           "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
           "balance": 25782.0
+        },
+        {
+          "ts": "2026-07-21 02:16:40",
+          "delta": 462.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 26244.0
+        },
+        {
+          "ts": "2026-07-21 02:16:50",
+          "delta": 300.0,
+          "reason": "Daily login reward (day 3/7)",
+          "balance": 26544.0
+        },
+        {
+          "ts": "2026-07-21 02:16:50",
+          "delta": 20000.0,
+          "reason": "StarBockers tier daily drip",
+          "balance": 46544.0
+        },
+        {
+          "ts": "2026-07-21 02:19:10",
+          "delta": 462.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 47006.0
+        },
+        {
+          "ts": "2026-07-21 02:21:14",
+          "delta": -10000.0,
+          "reason": "ZDOS LONG_CALL CSCO \u2014 stake opened",
+          "balance": 37006.0
+        },
+        {
+          "ts": "2026-07-21 02:22:35",
+          "delta": -10000.0,
+          "reason": "ZDOS LONG_CALL MYIPO+ Ace \u2014 stake opened",
+          "balance": 27006.0
+        },
+        {
+          "ts": "2026-07-21 02:22:53",
+          "delta": -10000.0,
+          "reason": "ZDOS LONG_CALL BTC-USD \u2014 stake opened",
+          "balance": 17006.0
+        },
+        {
+          "ts": "2026-07-21 02:23:44",
+          "delta": -10000.0,
+          "reason": "ZDOS LONG_CALL MYIPO+ Top 50 \u2014 stake opened",
+          "balance": 7006.0
+        },
+        {
+          "ts": "2026-07-21 02:24:22",
+          "delta": 512.0,
+          "reason": "Watched ad reward",
+          "balance": 7518.0
+        },
+        {
+          "ts": "2026-07-21 02:24:44",
+          "delta": 818.0,
+          "reason": "Watched ad reward",
+          "balance": 8336.0
+        },
+        {
+          "ts": "2026-07-21 02:25:08",
+          "delta": 391.0,
+          "reason": "Watched ad reward",
+          "balance": 8727.0
+        },
+        {
+          "ts": "2026-07-21 02:26:25",
+          "delta": -8000.0,
+          "reason": "ZDWS BULL USD \u2014 stake opened",
+          "balance": 727.0
+        },
+        {
+          "ts": "2026-07-21 02:27:09",
+          "delta": -700.0,
+          "reason": "PTS prediction stake: Above 1,650",
+          "balance": 27.0
+        },
+        {
+          "ts": "2026-07-21 10:01:58",
+          "delta": 30000.0,
+          "reason": "ZDOS early close WIN: MYIPO+ Top 50",
+          "balance": 30027.0
+        },
+        {
+          "ts": "2026-07-21 10:02:07",
+          "delta": 5000.0,
+          "reason": "ZDOS early close LOSS refund: BTC-USD",
+          "balance": 35027.0
+        },
+        {
+          "ts": "2026-07-21 10:02:11",
+          "delta": 5000.0,
+          "reason": "ZDOS early close LOSS refund: MYIPO+ Ace",
+          "balance": 40027.0
+        },
+        {
+          "ts": "2026-07-21 10:02:14",
+          "delta": 5000.0,
+          "reason": "ZDOS early close LOSS refund: CSCO",
+          "balance": 45027.0
+        },
+        {
+          "ts": "2026-07-21 10:02:27",
+          "delta": 4000.0,
+          "reason": "ZDWS early close LOSS refund: USD",
+          "balance": 49027.0
+        },
+        {
+          "ts": "2026-07-21 14:59:16",
+          "delta": 470.0,
+          "reason": "SoR \u2014 saved SCA holdings (Free 1x)",
+          "balance": 49497.0
+        },
+        {
+          "ts": "2026-07-21 14:59:23",
+          "delta": 470.0,
+          "reason": "SoR \u2014 saved SCA holdings (Free 1x)",
+          "balance": 49967.0
+        },
+        {
+          "ts": "2026-07-21 20:59:11",
+          "delta": 20000.0,
+          "reason": "StarBockers tier drip (activated mid-day, catch-up)",
+          "balance": 69967.0
+        },
+        {
+          "ts": "2026-07-22 10:56:15",
+          "delta": 587.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 70554.0
         }
       ],
       "sor_custom_enabled": false,
-      "tier_drip_date": "2026-07-20",
-      "sor_road_claimed": true
+      "tier_drip_date": "2026-07-21",
+      "sor_road_claimed": true,
+      "sms_opt_in": true,
+      "sms_funds": [],
+      "sms_history": [],
+      "sms_opens_date": "",
+      "sms_opens_today": 0
     }
   },
   "pts_migrated": true,
@@ -310,8 +562,16 @@
       "csv_path": "",
       "label": "My Sheet (283 txns)",
       "saved": "2026-07-20 15:07"
+    },
+    "test1": {
+      "mode": "sheet",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaZ4yBz0KhsA5Aj2sAehPd3nnMZjLF7RBs4bQHsxYdhrJW2NQ0u_kQc8_cXiDWxQMsRc2o-dvaSGlF/pub?output=csv",
+      "csv_path": "",
+      "label": "My Sheet (288 txns)",
+      "saved": "2026-07-21 10:13"
     }
   },
+  "sca_local_transactions": {},
   "pts": {
     "credits": 10000.0,
     "predictions": [],
@@ -390,11 +650,13 @@
   },
   "sor_config": {
     "mode": "default",
-    "default_min_units": 1.0,
+    "my_min_units": 100.0,
+    "us_min_units": 0.01,
     "us_share_per_cr": 0.01,
     "my_lotto_cr_per_unit": 1.0,
     "my_stock_per_cr": 1.0,
     "custom_threshold": 0.01,
+    "custom_credits": 1.0,
     "fep_multiplier": 2.0,
     "supporter_multiplier": 1.25,
     "road_thresholds": [
@@ -434,16 +696,17 @@
         10,
         10
       ]
-    ]
+    ],
+    "default_min_units": 1.0
   },
   "presence": {
     "test1": {
-      "last_seen": "2026-07-20 15:19:15",
-      "last_login": "2026-07-20 15:16:26"
+      "last_seen": "2026-07-21 12:42:43",
+      "last_login": "2026-07-21 11:09:32"
     },
     "admin1": {
-      "last_seen": "2026-07-20 15:21:05",
-      "last_login": "2026-07-20 15:21:05"
+      "last_seen": "2026-07-22 13:17:09",
+      "last_login": "2026-07-22 13:13:59"
     }
   },
   "stripe_api_key": "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",
@@ -452,5 +715,11 @@
   "stripe_restricted_key": "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",
   "stripe_mode": "live",
   "stripe_restricted_key_test": "",
-  "stripe_restricted_key_live": "mk_1TvAQFFTjQ5CGpfy7xKNPVdx"
+  "stripe_restricted_key_live": "mk_1TvAQFFTjQ5CGpfy7xKNPVdx",
+  "opie_display_names": {
+    "admin1": "ADMIN1"
+  },
+  "opie_name_locked": {
+    "admin1": true
+  }
 }
