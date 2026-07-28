@@ -220,7 +220,7 @@
       "sor_custom_enabled": false
     },
     "admin1": {
-      "credits": 71166.0,
+      "credits": 93844.0,
       "predictions": [
         {
           "id": 1,
@@ -242,13 +242,13 @@
       "total_made": 1,
       "total_correct": 0,
       "daily_topup_date": "",
-      "login_last_date": "2026-07-21",
-      "login_streak_day": 3,
-      "login_streak_len": 3,
+      "login_last_date": "2026-07-24",
+      "login_streak_day": 1,
+      "login_streak_len": 1,
       "tier": "StarBockers",
       "tier_started": "2026-07-21",
-      "ads_date": "2026-07-21",
-      "ads_watched": 3,
+      "ads_date": "2026-07-24",
+      "ads_watched": 0,
       "zdws_active": [],
       "zdws_history": [
         {
@@ -346,7 +346,7 @@
           "move_pct": -1.1096
         }
       ],
-      "sor_last_date": "2026-07-23",
+      "sor_last_date": "2026-07-28",
       "credit_log": [
         {
           "ts": "2026-07-20 14:35:03",
@@ -527,6 +527,162 @@
           "delta": 612.0,
           "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
           "balance": 71166.0
+        },
+        {
+          "ts": "2026-07-23 12:21:13",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 21.8122 units of MYIPO+ EY Russell 2000 Fund @ RM4.5846/unit",
+          "balance": 71066.0
+        },
+        {
+          "ts": "2026-07-23 12:21:35",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 23.3988 units of MYIPO+ EY Dow Jones Fund @ RM4.2737/unit",
+          "balance": 70966.0
+        },
+        {
+          "ts": "2026-07-23 12:21:43",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 23.3452 units of MYIPO+ EY S&P 500 Fund @ RM4.2835/unit",
+          "balance": 70866.0
+        },
+        {
+          "ts": "2026-07-23 12:21:50",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 22.6854 units of MYIPO+ EY Nasdaq 100 Fund @ RM4.4081/unit",
+          "balance": 70766.0
+        },
+        {
+          "ts": "2026-07-23 12:22:13",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 25.4098 units of MYIPO+ EY Mixed Fund @ RM3.9355/unit",
+          "balance": 70666.0
+        },
+        {
+          "ts": "2026-07-23 12:22:28",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 438.9816 units of MYIPO+ Top 10 Fund @ RM0.2278/unit",
+          "balance": 70566.0
+        },
+        {
+          "ts": "2026-07-23 12:22:38",
+          "delta": 100.0,
+          "reason": "Fund Page \u2014 sold 438.9816 units of MYIPO+ Top 10 Fund @ RM0.2278/unit",
+          "balance": 70666.0
+        },
+        {
+          "ts": "2026-07-23 12:22:54",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 189.7533 units of MYIPO+ Dynamic365 Fund @ RM0.5270/unit",
+          "balance": 70566.0
+        },
+        {
+          "ts": "2026-07-23 12:23:03",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 116.6317 units of MYIPO+ Ace Fund @ RM0.8574/unit",
+          "balance": 70466.0
+        },
+        {
+          "ts": "2026-07-23 18:39:45",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 692.5208 units of MYIPO+ Main Fund @ RM0.1444/unit",
+          "balance": 70366.0
+        },
+        {
+          "ts": "2026-07-23 18:39:52",
+          "delta": 100.0,
+          "reason": "Fund Page \u2014 sold 692.5208 units of MYIPO+ Main Fund @ RM0.1444/unit",
+          "balance": 70466.0
+        },
+        {
+          "ts": "2026-07-23 18:40:00",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 190.0779 units of MYIPO+ Dynamic365 Fund @ RM0.5261/unit",
+          "balance": 70366.0
+        },
+        {
+          "ts": "2026-07-23 18:43:17",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 37.1400 units of MYIPO+ YieldMax FoF Fund @ RM2.6925/unit",
+          "balance": 70266.0
+        },
+        {
+          "ts": "2026-07-24 10:42:39",
+          "delta": 625.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 70891.0
+        },
+        {
+          "ts": "2026-07-24 11:42:02",
+          "delta": 100.0,
+          "reason": "Daily login reward (day 1/7)",
+          "balance": 70991.0
+        },
+        {
+          "ts": "2026-07-24 11:42:02",
+          "delta": 20000.0,
+          "reason": "StarBockers tier daily drip",
+          "balance": 90991.0
+        },
+        {
+          "ts": "2026-07-25 00:00:01",
+          "delta": 637.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 91628.0
+        },
+        {
+          "ts": "2026-07-25 00:15:57",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 117.0275 units of MYIPO+ Ace Fund @ RM0.8545/unit",
+          "balance": 91528.0
+        },
+        {
+          "ts": "2026-07-25 00:16:06",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 191.3876 units of MYIPO+ Dynamic365 Fund @ RM0.5225/unit",
+          "balance": 91428.0
+        },
+        {
+          "ts": "2026-07-26 21:27:15",
+          "delta": 872.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 92300.0
+        },
+        {
+          "ts": "2026-07-27 09:29:02",
+          "delta": 872.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 93172.0
+        },
+        {
+          "ts": "2026-07-28 00:31:47",
+          "delta": 872.0,
+          "reason": "SoR \u2014 saved SCA holdings (StarBockers 1.25x)",
+          "balance": 94044.0
+        },
+        {
+          "ts": "2026-07-28 01:10:50",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 263.6436 units of MYIPO+ Fund @ RM0.3793/unit",
+          "balance": 93944.0
+        },
+        {
+          "ts": "2026-07-28 01:10:59",
+          "delta": 99.99999999999999,
+          "reason": "Fund Page \u2014 sold 263.6436 units of MYIPO+ Fund @ RM0.3793/unit",
+          "balance": 94044.0
+        },
+        {
+          "ts": "2026-07-28 01:11:07",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 191.3876 units of MYIPO+ Dynamic365 Fund @ RM0.5225/unit",
+          "balance": 93944.0
+        },
+        {
+          "ts": "2026-07-28 01:11:21",
+          "delta": -100.0,
+          "reason": "Fund Page \u2014 bought 414.9378 units of MYIPO+ Top 100 Fund @ RM0.2410/unit",
+          "balance": 93844.0
         }
       ],
       "sor_custom_enabled": false,
@@ -536,10 +692,25 @@
       "sms_funds": [],
       "sms_history": [],
       "sms_opens_date": "",
-      "sms_opens_today": 0
+      "sms_opens_today": 0,
+      "fund_holdings": {
+        "MYIPO+ EY Russell 2000 Fund": 21.81217493804406,
+        "MYIPO+ EY Dow Jones Fund": 23.398780283852847,
+        "MYIPO+ EY S&P 500 Fund": 23.345225951713573,
+        "MYIPO+ EY Nasdaq 100 Fund": 22.68538961446284,
+        "MYIPO+ EY Mixed Fund": 25.40980271223464,
+        "MYIPO+ Top 10 Fund": 0.0,
+        "MYIPO+ Dynamic365 Fund": 762.6063722524372,
+        "MYIPO+ Ace Fund": 233.65917862636138,
+        "MYIPO+ Main Fund": 0.0,
+        "MYIPO+ YieldMax FoF Fund": 37.139990057419055,
+        "MYIPO+ Fund": 0.0,
+        "MYIPO+ Top 100 Fund": 414.9377593360996
+      }
     }
   },
   "pts_migrated": true,
+  "home_currency": "MYR",
   "sca_sources": {
     "HSD": {
       "mode": "sheet",
@@ -559,8 +730,8 @@
       "mode": "sheet",
       "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaZ4yBz0KhsA5Aj2sAehPd3nnMZjLF7RBs4bQHsxYdhrJW2NQ0u_kQc8_cXiDWxQMsRc2o-dvaSGlF/pub?output=csv",
       "csv_path": "",
-      "label": "My Sheet (283 txns)",
-      "saved": "2026-07-20 14:37"
+      "label": "My Sheet (423 txns)",
+      "saved": "2026-07-28 19:21"
     },
     "admin1": {
       "mode": "sheet",
@@ -711,8 +882,8 @@
       "last_login": "2026-07-21 11:09:32"
     },
     "admin1": {
-      "last_seen": "2026-07-23 11:31:40",
-      "last_login": "2026-07-23 11:26:42"
+      "last_seen": "2026-07-28 21:04:25",
+      "last_login": "2026-07-28 20:55:35"
     }
   },
   "stripe_api_key": "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",
@@ -731,7 +902,35 @@
   "opie_recent_asked": {
     "admin1": [
       "index of MYIPO+",
-      "index of MYIPO+ 5D"
+      "index of MYIPO+ 5D",
+      "top holdings in XLC",
+      "was my portfolio too much Apple?",
+      "Can i knew what my XLC currently",
+      "as who have 0.1 unit in above in my portfolio",
+      "set summary on open",
+      "as SMH why fall too much",
+      "so why fall"
     ]
-  }
+  },
+  "opie_summary_prefs": {
+    "admin1": {
+      "schedule_mode": "on_open"
+    }
+  },
+  "div_policy_rates": {
+    "XLC": 100.0,
+    "5555.KL": 40.0,
+    "5347.KL": 70.0,
+    "ARKG": 100.0,
+    "XLU": 100.0,
+    "5296.KL": 40.0,
+    "0358.KL": 40.0,
+    "SMH": 100.0,
+    "0157.KL": 40.0,
+    "1171.KL": 40.0,
+    "FIW": 100.0,
+    "IBB": 100.0,
+    "IGV": 100.0
+  },
+  "div_tax_mode": true
 }
